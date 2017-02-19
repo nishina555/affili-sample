@@ -1,0 +1,9 @@
+h1 Cards#index
+p = link_to '検索', search_path
+table
+  - @cards.each do |card|
+    tr
+      td
+        = card.name
+      td
+        = card.info
