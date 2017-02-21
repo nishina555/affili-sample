@@ -2,6 +2,10 @@ h1
   | Cards#search
 p
   | Find me in app/views/cards/search.html.slim
+
+
+= page_entries_info @cards
+
 table
   - @cards.each do |card|
     tr
@@ -9,3 +13,4 @@ table
         = card.name
       td
         = card.info
+= paginate @cards

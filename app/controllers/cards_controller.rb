@@ -4,6 +4,6 @@ class CardsController < ApplicationController
   end
 
   def search
-    @cards = Card.all
+    @cards = Card.page(params[:page])
   end
 end
