@@ -9,3 +9,7 @@ table
         = card.info
       td
         = card.loan.amount
+      td
+        - card.loan_methods.each do |loan_method|
+          = loan_method.method
+          | ,

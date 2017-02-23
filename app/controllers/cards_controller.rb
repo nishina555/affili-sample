@@ -3,6 +3,7 @@ class CardsController < ApplicationController
     @q = Card.ransack(params[:q])
     @cards = @q.result(distinct: true)
     @loan = Loan.all
+
     # @cards = Card.all
   end
 
