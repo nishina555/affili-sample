@@ -1,0 +1,12 @@
+= search_form_for(@q, url:search_path) do |f|
+  = f.label :name_cont, 'カード名'
+  = f.search_field :name_cont
+  br
+  = f.label :loan_id_eq, '借入額'
+  = radio_button_tag :loan_id, ''
+  = label_tag :loan_id, '指定なし'
+  = f.collection_radio_buttons :loan_id_eq, @loan, :id, :amount
+  br
+  /=
+  /= f.collection_check_boxes :_in
+  = f.submit
