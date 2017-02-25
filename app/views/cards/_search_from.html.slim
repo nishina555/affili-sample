@@ -9,6 +9,6 @@
     = f.collection_radio_buttons :loan_id_eq, @loans, :id, :amount
   p
     = f.label :loan_methods_id_in, '借入方法'
-    = f.collection_check_boxes :loan_methods_id_in, @loan_methods, :id, :method, include_hidden: false
+    /= f.collection_check_boxes :loan_methods_id_in, @loan_methods, :id, :method, include_hidden: false
+    = f.collection_check_boxes :loan_methods_id_in, @loan_methods, :id, :method
   = f.submit
-

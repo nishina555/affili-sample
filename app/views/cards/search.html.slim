@@ -1,11 +1,23 @@
 h1
   | Cards#search
 p
-  | Find me in app/views/cards/search.html.slim
-
+  | 検索クエリ
+  br
+  - unless @search_query[:name_cont].empty?
+    | カード名:
+    = @search_query[:name_cont]
+  br
+  - unless @search_query[:loan_id_eq].empty?
+    | 借入額:
+    = Loan.find(@search_query[:loan_id_eq]).amount
+  br
+    - unless @search_query[:loan_methods_id_in].reject(&:blank?).empty?
+      | 借入方法:
+      - @search_query[:loan_methods_id_in].reject(&:blank?).each do |loan_method_id|
+        = LoanMethod.find(loan_method_id).method
+        |,
 
 = page_entries_info @cards
-
 table
   - @cards.each do |card|
     tr
@@ -15,3 +27,4 @@ table
         = card.info
 = paginate @cards
 = link_to 'トップ', card_loan_path
+
