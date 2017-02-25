@@ -1,8 +1,10 @@
 class CardsController < ApplicationController
   def index
     @q = Card.ransack(params[:q])
-    @cards = @q.result(distinct: true)
-    @loan = Loan.all
+    # @cards = @q.result(distinct: true)
+    @cards = @q.result.includes(:loan_methods)
+    @loans = Loan.all
+    @loan_methods = LoanMethod.all
 
     # @cards = Card.all
   end
